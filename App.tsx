@@ -1,24 +1,34 @@
-import React, { useState } from 'react';
-import { View, Text, Button } from 'react-native';
+import React from 'react';
+import { View, Text, StyleSheet} from 'react-native';
 
 function App() {
-  const [nome, setNome] = useState('Eduardo');
-  const [idade, setIdade] = useState(22);
-
-  function entrar(nome, idade){
-    setNome(nome);
-    setIdade(idade)
-  }
-
+  
   return(
-    <View style={{ marginTop: 25 }}>
+  <View style={{flex:1, backgroundColor: '#121212'}}>
 
-      <Button title="Mudar nome" onPress={ () => entrar('Junior Alex', 33)} />
-      <Text style={{ fontSize: 19 }}> {nome} </Text>
-      <Text style={{ fontSize: 19 }}> {idade} </Text>
+    <View style={styles.quadrado1}></View>
+    <View style={styles.quadrado2}>
+      <Text>Sou um texto</Text>
+    </View>
+    <View style={styles.quadrado3}></View>
 
   </View>
   );
 }
+
+const styles = StyleSheet.create({
+  quadrado1: {
+    height: 65,
+    backgroundColor: '#121212'
+  },
+  quadrado2: {
+    flex: 1,
+    backgroundColor: '#DDD'
+  },
+  quadrado3: {
+    height: 65,
+    backgroundColor: '#121212'
+  }
+});
 
 export default App;
