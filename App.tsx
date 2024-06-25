@@ -1,46 +1,49 @@
-import React from 'react';
-import { View, Text, StyleSheet} from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, TextInput, StyleSheet} from 'react-native';
 
 function App() {
+  const [nome, setNome] = useState('');
+
+  function pegaNome(texto) {
+
+    if(texto.length > 0) {
+      setNome('Bem vindo ' + texto);
+    } else {
+      setNome('');
+    } 
+  }
   
   return(
-  <View style={{ 
-    flex:1, 
-    flexDirection: 'row', // linha
-    alignItems: 'flex-start', // eixo Y
-    justifyContent:'center' // eixo x 
+  <View style={styles.container}>
 
-    // flexDirection: 'column', // coluna
-    // alignItems: 'flex-start', // eixo X
-    // justifyContent:'center' // eixo Y 
-    }}>
+    <TextInput
+      style={styles.input}
+      placeholder= "Digite seu nome"
+      onChangeText={ (text) => pegaNome(text)} // A cada vez que digitar alguma coisa nesse campo, ele chama uma função
+    />
 
-    <View style={[styles.quadrado, styles.preto]}></View>
-    <View style={[styles.quadrado, styles.vermelho]}></View>
-    <View style={[styles.quadrado, styles.verde]}></View>
-    <View style={[styles.quadrado, styles.azul]}></View>
+    <Text style={styles.texto}> {nome} </Text>
 
   </View>
   );
 }
 
 const styles = StyleSheet.create({
-  quadrado: {
-    height: 50,
-    width: 50
+  container: {
+    flex: 1
   },
-  preto: {
-    backgroundColor: '#121212'
+  input: {
+    height: 45,
+    borderWidth: 1,
+    margin: 10,
+    padding: 10,
+    fontSize: 20
   },
-  vermelho: {
-    backgroundColor: 'red'
-  },
-  verde: {
-    backgroundColor: 'green'
-  },
-  azul: {
-    backgroundColor: 'blue'
+  texto:{
+    textAlign: 'center',
+    fontSize: 25
   }
+
 });
 
 export default App;
