@@ -7,7 +7,8 @@ function App() {
 
   return(
   <View style={styles.container}>
-    <Text>Opaa</Text>
+    <Text style={styles.titulo}>Seja bem vindo!</Text>
+    <Usuario nome="Eduardo" cargo="Estagiario" />
   </View>
   );
 }
@@ -15,6 +16,13 @@ function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1
+  },
+  titulo: {
+    padding: 10,
+    backgroundColor: '#ffffff',
+    textAlign: 'center',
+    fontWeight: '600',
+    color: '#000000'
   }
 });
 
